@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Utku B. Demir – Publications</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 700px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
+    li { margin-bottom: 1em; }
+  </style>
+</head>
+<body>
+
+<h1>Publications</h1>
+
+<ul>
+  <li>
+    📄 <a href="https://utkubilendemir.github.io/BA-Thesis/" target="_blank">
+      BA Thesis | From Panopticon to Palantír: Algorithmic Governance in the Post-Disciplinary Societies
+    </a>
+  </li>
+  <li>
+    📄 <a href="https://utkubilendemir.github.io/MA-Thesis/" target="_blank">
+      MA Thesis | NOMADIC DESCENT: Generative AI, Subjectivation, and Resistance/Critique in Control Societies
+    </a>
+  </li>
+</ul>
+
+</body>
+</html>
