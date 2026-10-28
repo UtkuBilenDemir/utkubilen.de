@@ -105,29 +105,14 @@ section {
   color: inherit;
   border-bottom: 1px solid var(--line);
   text-decoration: none;
-}
-
-.thesis::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--ink);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 220ms ease;
+  transition: background-color 180ms ease, color 180ms ease, padding-left 180ms ease;
 }
 
 .thesis:hover,
 .thesis:focus-visible {
+  background-color: var(--ink);
   color: var(--paper);
   padding-left: 1.25rem;
-}
-
-.thesis:hover::before,
-.thesis:focus-visible::before {
-  transform: scaleX(1);
-  transform-origin: left;
 }
 
 .thesis:focus-visible {
@@ -191,6 +176,5 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .thesis,
-  .thesis::before { transition: none; }
+  .thesis { transition: none; }
 }
