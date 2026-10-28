@@ -1,0 +1,196 @@
+@font-face {
+  font-family: "iA Writer Duo";
+  src: url("fonts/ia-writer-duo-400.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "iA Writer Duo";
+  src: url("fonts/ia-writer-duo-400-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "iA Writer Duo";
+  src: url("fonts/ia-writer-duo-700.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "iA Writer Mono";
+  src: url("fonts/ia-writer-mono-400.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --paper: #f6f6f1;
+  --ink: #11110f;
+  --muted: #686861;
+  --line: #b9b9b1;
+  color-scheme: light dark;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  min-height: 100%;
+  background: #d8d8d2;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, .9) 0%, rgba(255, 255, 255, 0) 64%),
+    var(--paper);
+  font-family: "iA Writer Duo", "IBM Plex Mono", ui-monospace, monospace;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  width: min(calc(100% - 3rem), 76rem);
+  margin: 0 auto;
+}
+
+article {
+  min-height: 100vh;
+  padding: clamp(4rem, 10vw, 9rem) 0 5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(24rem, 1fr);
+  column-gap: clamp(4rem, 9vw, 10rem);
+  align-content: start;
+}
+
+header { position: sticky; top: 5rem; align-self: start; }
+
+h1 {
+  max-width: 7ch;
+  margin: 0;
+  font-size: clamp(4rem, 9vw, 8.6rem);
+  font-weight: 400;
+  letter-spacing: -.075em;
+  line-height: .84;
+}
+
+.subtitle {
+  margin: 2.5rem 0 0;
+  color: var(--muted);
+  font-family: "iA Writer Mono", monospace;
+  font-size: .76rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+section {
+  border-top: 1px solid var(--ink);
+}
+
+.thesis {
+  position: relative;
+  min-height: 17rem;
+  padding: 1.25rem 3rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5rem;
+  color: inherit;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+
+.thesis::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 220ms ease;
+}
+
+.thesis:hover,
+.thesis:focus-visible {
+  color: var(--paper);
+  padding-left: 1.25rem;
+}
+
+.thesis:hover::before,
+.thesis:focus-visible::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.thesis:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.thesis-type {
+  font-family: "iA Writer Mono", monospace;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.thesis-title {
+  max-width: 32rem;
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  line-height: 1.35;
+}
+
+.arrow {
+  position: absolute;
+  right: .25rem;
+  top: 1rem;
+  font-family: "iA Writer Mono", monospace;
+  font-size: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #11110f;
+    --ink: #f1f1ea;
+    --muted: #aaa9a1;
+    --line: #4a4a44;
+  }
+
+  html { background: #050505; }
+
+  body {
+    background:
+      linear-gradient(120deg, rgba(255, 255, 255, .04) 0%, rgba(255, 255, 255, 0) 64%),
+      var(--paper);
+  }
+}
+
+@media (max-width: 760px) {
+  main { width: min(calc(100% - 2rem), 40rem); }
+
+  article {
+    display: block;
+    padding-top: 4rem;
+  }
+
+  header {
+    position: static;
+    padding-bottom: 4rem;
+  }
+
+  section { margin-top: 1rem; }
+  .thesis { min-height: 14rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thesis,
+  .thesis::before { transition: none; }
+}
